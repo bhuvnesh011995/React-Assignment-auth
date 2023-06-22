@@ -1,0 +1,11 @@
+.home{
+    background-color: azure;
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    margin: 15px;
+}
