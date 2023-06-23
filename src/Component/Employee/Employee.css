@@ -1,0 +1,16 @@
+.employee_page{
+    background-color: azure;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    flex-direction: column;
+}
+button{
+    background-color: aquamarine;
+    margin: 20px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}

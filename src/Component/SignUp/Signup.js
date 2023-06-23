@@ -1,7 +1,7 @@
-import { Link, useSearchParams } from "react-router-dom";
+import {Link, redirect, useNavigate, useSearchParams } from "react-router-dom";
 import "./Signup.css";
 import Input from "../Common/Input";
-import axios from "../../Auth/auth.axios"
+import axios from "../../wrapper/auth.axios"
 import { useContext, useState } from "react";
 import { themeContext } from "../../wrapper/Thame.context";
 
@@ -18,10 +18,13 @@ export default function Signup() {
   const [user,setUser] = useState(initialState);
   const [success,setSuccess] = useState(false);
   const {theme} = useContext(themeContext)
-
+let navigate = useNavigate();
 
   async function handleClick(e){
     try{
+      
+      
+      navigate("/users/logIn")
       let formJSON = structuredClone({...user})
     let data = await axios.post(url,formJSON)
     setUser(initialState)
@@ -36,10 +39,10 @@ export default function Signup() {
   return (
     <>
     {success?(
-      <Link to="/logIn">
+      <Link to="/users/logIn">
         <div 
         style={{backgroundColor:theme.background,color:theme.color}}
-        >signUp successfull logIn</div>
+        >signUp successfull logIn now</div>
       </Link>
     ):(
       <div
@@ -69,7 +72,7 @@ export default function Signup() {
         </form>
         <div className="show_login">
           <div>Already have an account ?</div>
-          <Link to="/logIn">
+          <Link to="/users/logIn">
             <div>Login</div>
           </Link>
         </div>

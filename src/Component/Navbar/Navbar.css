@@ -31,3 +31,7 @@
 .left_nav{
     display: flex;
 }
+.logout_button{
+    letter-spacing: normal;
+    cursor: pointer;
+}

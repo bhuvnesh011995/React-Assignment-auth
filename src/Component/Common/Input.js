@@ -12,6 +12,8 @@ export default function Input({placeholder,type,name,setUser,value}){
 
             case "password" : return setUser(preVal=>({...preVal,password:e.target.value}))
 
+            case "userId" : return setUser(preVal=>({...preVal,userId:e.target.value}))
+
             default: return setUser(preVal=>preVal)
         }
     }
