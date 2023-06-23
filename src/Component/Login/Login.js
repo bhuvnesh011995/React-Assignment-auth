@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import "./Login.css";
 import Input from "../Common/Input";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios"
+
+import { themeContext } from "../../wrapper/Thame.context";
 
 
 
@@ -19,6 +21,7 @@ let url = "http://localhost:8080/users/logIn"
 export default function Login() {
 
     const [user,setUser] = useState(initialState);
+    const {theme} = useContext(themeContext)
 
 
   async function handleClick(e){
@@ -31,7 +34,10 @@ export default function Login() {
   }
 
   return (
-    <div className="login">
+    <div 
+    className="login"
+    style={{backgroundColor:theme.background,color:theme.color}}
+    >
       <div className="login_container">
         <form>
           <label>UserName</label>

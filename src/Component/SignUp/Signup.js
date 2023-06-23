@@ -2,7 +2,8 @@ import { Link, useSearchParams } from "react-router-dom";
 import "./Signup.css";
 import Input from "../Common/Input";
 import axios from "../../Auth/auth.axios"
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { themeContext } from "../../wrapper/Thame.context";
 
 let initialState = {
                       role:"USER",
@@ -15,7 +16,8 @@ let url = "http://localhost:8080/users/signUp"
 
 export default function Signup() {
   const [user,setUser] = useState(initialState);
-  const [success,setSuccess] = useState(false)
+  const [success,setSuccess] = useState(false);
+  const {theme} = useContext(themeContext)
 
 
   async function handleClick(e){
@@ -35,10 +37,15 @@ export default function Signup() {
     <>
     {success?(
       <Link to="/logIn">
-        <>signUp successfull logIn</>
+        <div 
+        style={{backgroundColor:theme.background,color:theme.color}}
+        >signUp successfull logIn</div>
       </Link>
     ):(
-      <div className="signup">
+      <div
+      style={{backgroundColor:theme.background,color:theme.color}}
+       className="signup"
+       >
       <div className="signup_container">
         <form>
           <label>Name</label>

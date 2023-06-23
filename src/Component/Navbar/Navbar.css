@@ -15,8 +15,19 @@
     height: 30px;
     cursor: pointer;
     padding-right: 10%;
+    margin: 10px;
 }
 .right_nav{
     cursor: pointer;
      text-decoration: none;
+}
+.theme{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    padding-right: 10%;
+    margin: 10px;
+}
+.left_nav{
+    display: flex;
 }

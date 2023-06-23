@@ -8,7 +8,7 @@ export default function AuthProvider({children}){
 
     const [auth,setAuth] = useState({})
     return(
-        <authContext.Provider>
+        <authContext.Provider value={{auth,setAuth}}>
             {children}
         </authContext.Provider>
     )
