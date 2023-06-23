@@ -3,7 +3,7 @@ import loginLogo from "../login.png"
 import { Link, useNavigate } from "react-router-dom";
 import darklogo from "../dark.png"
 import lightlogo from "../light.png"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { themeContext } from "../../wrapper/Thame.context";
 import { authContext,initialstate } from "../../wrapper/Auth.context";
 
@@ -11,6 +11,7 @@ export default function Navbar(){
     const {theme,dark,toggle} = useContext(themeContext);
     const {auth,setAuth} = useContext(authContext)
     let navigate = useNavigate()
+    let {success} = {auth}
 
     async function handleClick(e){
         setAuth(initialstate);
@@ -31,15 +32,12 @@ export default function Navbar(){
                 className="theme" 
                 src={dark?lightlogo:darklogo} 
                 alt="theme" />
-                {!auth.success? <div
-                className="logout_button"
-                onClick={handleClick}
-                >logout</div>:<Link to="/users/login">
+                <Link to="/users/login">
                 <img 
                 className="singIn_logo"
                 src={loginLogo}
                 alt="signIn/logIn" />
-                </Link>}
+                </Link>
                 
             </div>
         </div>

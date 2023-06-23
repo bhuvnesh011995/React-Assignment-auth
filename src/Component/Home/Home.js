@@ -14,7 +14,7 @@ export default function Home(){
           success:true,
           userId:data.userId
          })
-         if(data.role=="ADMiN") navigate("/users/admin/")
+         if(data.role=="ADMIN") navigate("/users/admin/")
         if(data.role=="EMPLOYEE") navigate("/users/employee")
         else navigate("/")
           }

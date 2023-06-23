@@ -24,16 +24,13 @@ export default function EmployeePage(){
             let data =""
             switch(e.target.name){
                 case "getUser" :{
-                    console.log("hi")
                     if(!user.userId) {
                         setMessage("pass userId")
                         setTimeout(()=>{setMessage("")},2000)
                         return
                 }
                     let {data} = await axios.get(`${url+user.userId}`,
-                {headers:headers}).catch(err=>{
-                    console.log(err)
-                })
+                {headers:headers})
                 setMessage(data.message)
                 setTimeout(()=>{setMessage("")},2000)
                 return
@@ -50,14 +47,14 @@ export default function EmployeePage(){
                 setTimeout(()=>{setMessage("")},2000)
                 return
                 }
-                case "updatetUser":{
+                case "updateUser":{
                     if(!user.userId) {
                         setMessage("pass userId")
                         setTimeout(()=>{setMessage("")},2000)
                         return
                 }
-                    let {data} = await axios.put(`${url+user.userId}`,
-                {headers})
+                let {data} = await axios.put(`${url+user.userId}`,
+                {headers:headers})
                 setMessage(data.message)
                 setTimeout(()=>{setMessage("")},2000)
                 return
@@ -92,7 +89,7 @@ export default function EmployeePage(){
                 <button onClick={handleClick} name="deleteUser">check deleteuser privilege</button>
             </div>
             <div>
-                <button onClick={handleClick} name="updatetUser">check updateuser privilege</button>
+                <button onClick={handleClick} name="updateUser">check updateuser privilege</button>
             </div>
             <div>
                 <button onClick={handleClick} name="getAllUser">check getAllUser privilege</button>
